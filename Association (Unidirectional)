@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+class Field {
+public:
+    string name;
+    Field(string n) {
+        name=n;
+    }
+};
+class Employee {
+public:
+    string name;
+    Field* fie;
+    Employee(string n, Field* f) {
+        name=n;
+        fie=f;
+    }
+    void display() {
+        cout << name << " works in " << fie->name << " Field " << endl;
+    }
+};
+int main() {
+    Field f("Designer");
+    Employee e("prakash", &f);
+    e.display();
+    return 0;
+}
