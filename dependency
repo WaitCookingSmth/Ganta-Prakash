@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+class Company {
+public:
+    void provideID() {
+        cout << "ID provided by company" << endl;
+    }
+};
+
+class Employee {
+public:
+    void getID(Company& c) {
+        c.provideID();
+    }
+};
+
+int main() {
+    Company c;
+    Employee e;
+    e.getID(c);
+    return 0;
+}
