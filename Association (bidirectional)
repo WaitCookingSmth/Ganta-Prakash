@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+class Company {
+public:
+    string companyName;
+    Company(string name) {
+        companyName = name;
+    }
+
+    void giveAccess(string employeeName) {
+        cout << employeeName << " got access to " << companyName << endl;
+    }
+};
+
+class Employee {
+public:
+    string name;
+    Employee(string n) {
+        name = n;
+    }
+
+    void requestAccess(Company& c) {
+        c.giveAccess(name);
+    }
+};
+
+int main() {
+    Company c("amazon");
+    Employee e("prakash");
+    e.requestAccess(c);
+    return 0;
+}
