@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+class Employee {
+public:
+    string name;
+    Employee* manager;
+
+    Employee(string n) : name(n) {}
+
+    void setManager(Employee* m) {
+        manager = m;
+    }
+
+    void showManager() {
+        if (manager)
+            cout << name << " manager is " << manager->name << endl;
+        else
+            cout << name << " has no manager" << endl;
+    }
+};
+
+int main() {
+    Employee e1("Ravi");
+    Employee e2("Anita");
+    e1.setManager(&e2);
+    e1.showManager();
+    e2.showManager();
+    return 0;
+}
