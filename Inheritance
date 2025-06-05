@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+class Collage {
+public:
+    string collageName;
+    Collage(string name) {
+        collageName = name;
+    }
+};
+
+class Student : public Collage {
+public:
+    string studentName;
+    Student(string sName, string colName) : Collage(colName) {
+        studentName = sName;
+    }
+
+    void display() {
+        cout << studentName << " studies in " << collageName << endl;
+    }
+};
+
+int main() {
+    Student s("prakash", "SRM KTR");
+    s.display();
+    return 0;
+}
