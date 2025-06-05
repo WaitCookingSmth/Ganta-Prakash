@@ -1,29 +1,33 @@
 #include <iostream>
 using namespace std;
-class Employee {
+
+class Car {
 public:
-    string name;
-    Employee* manager;
+    string model;
+    Car* towedCar;
 
-    Employee(string n) : name(n) {}
-
-    void setManager(Employee* m) {
-        manager = m;
+    Car(string m) {
+            model=m;
+            towedCar=nullptr;
     }
 
-    void showManager() {
-        if (manager)
-            cout << name << " manager is " << manager->name << endl;
+    void tow(Car* c) {
+        towedCar = c;
+    }
+
+    void showTowedCar() {
+        if (towedCar)
+            cout << model << " is towing " << towedCar->model << endl;
         else
-            cout << name << " has no manager" << endl;
+            cout << model << " is not towing any car" << endl;
     }
 };
 
 int main() {
-    Employee e1("Ravi");
-    Employee e2("Anita");
-    e1.setManager(&e2);
-    e1.showManager();
-    e2.showManager();
+    Car c1("TowTruck");
+    Car c2("Sedan");
+    c1.tow(&c2);
+    c1.showTowedCar();
+    c2.showTowedCar();
     return 0;
 }
